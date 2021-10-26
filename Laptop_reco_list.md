@@ -175,7 +175,7 @@ https://www.apple.com/hk_edu_13377/shop/buy-mac/macbook-air/space-gray-apple-m1-
 ![image](https://user-images.githubusercontent.com/92884544/138830458-8a70376e-c679-4c5b-b651-2ab8b5ad4593.png)
 
 ## 优缺点
-- 做工外观一流
+- 做工外观一流，轻薄
 - 只有8g内存 可能不能多条4k视频剪辑
 - 只有Type-C接口
 - macOS
@@ -199,3 +199,18 @@ https://detail.tmall.com/item.htm?spm=a1z10.5-b-s.w4011-16250570351.71.18cd1fd0X
 
 ## 缺点
 - __贵!!!__
+
+# MacBook 14 2021
+
+512g 16g教育优惠 ￥12000
+
+## 优缺点
+- 做工外观一流，同尺寸里算偏重 1.6kg
+- 刘海屏
+- 视频剪辑很强
+- 只有Type-C接口
+- 但是配了读卡槽，可以读相机的SD卡
+- 磁吸充电口，可以防止充电的时候绊到充电线把电脑摔了
+- macOS
+- 键盘手感一般
+- 贵
