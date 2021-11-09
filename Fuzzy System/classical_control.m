@@ -1,8 +1,6 @@
+close all
 clc
 clear
-close all
-% load model
-fuzzy_control_model = readfis('fuzzy_control_reasoning.fis');
 
 %inputs
 case_num = 1;
@@ -33,9 +31,13 @@ L = 2.5;
 T = 0.1;
 v = 0.5;
 
-%boundary
-y_boundary = 0.1;
-theta_boundary = 0.01;
+%tunabel param (stopping criteria)
+y_threshold = 0.1;
+theta_threshold = 0.01;
+
+% control param
+K_y = 4.5;
+
 
 %storage for map
 locus_x=[];locus_x(1)=x;
@@ -43,23 +45,28 @@ locus_y=[];locus_y(1)=y;
 locus_theta=[];locus_theta(1)=theta;
 locus_u=[];locus_u(1)=0;
 
-%fuzzy controller
+
+% P controller
+K_P_y = 0.02; %gain of y
+K_P_theta=0.01; %gain of theta
 index = 0;
-while (abs(y) > y_boundary || abs(theta) > theta_boundary)
-index = index + 1;
- %infer u
- u = evalfis(fuzzy_control_model, [y theta]);
+while ((abs(y) > y_threshold || abs(theta) > theta_threshold) && index < 10000)
+ index = index + 1;
+ %compute error of theta and y
+ error_theta = 0 - theta;
+ error_y = 0 - y;
  
- %degree to rad
- u = deg2rad(u);
- theta_rad = deg2rad(theta);
+ %compute u
+ u = K_P_y*error_y+K_P_theta*error_theta;
  
  %update theta,x and y
- theta_current = theta_rad + v * T * tan(u) / L;
+ theta_rad = deg2rad(theta);
+ theta_curr = theta_rad + v * T * tan(u) / L;
  x_current = x + v * T * cos(theta_rad);
  y_current = y + v * T * sin(theta_rad);
-%storage
-theta = rad2deg(theta_current);
+ 
+ %storage for map
+ theta = rad2deg(theta_curr);
  x = x_current;
  y = y_current;
  locus_x(index + 1)=x;
@@ -80,5 +87,3 @@ subplot(2,2,3),plot(t,locus_u,'-k')
 title('t-u'),grid on
 subplot(2,2,4),plot(t,locus_theta,'-k')
 title('t-theta'),grid on
-
-
