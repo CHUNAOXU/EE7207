@@ -3,7 +3,7 @@ clc
 clear
 
 %inputs
-case_num = 1;
+case_num = 4;
 switch case_num
     case 1
         theta = 0;

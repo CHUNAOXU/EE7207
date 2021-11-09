@@ -5,7 +5,7 @@ close all
 fuzzy_control_model = readfis('fuzzy_control_reasoning.fis');
 
 %inputs
-case_num = 1;
+case_num = 4;
 switch case_num
     case 1
         theta = 0;
@@ -42,6 +42,7 @@ locus_x=[];locus_x(1)=x;
 locus_y=[];locus_y(1)=y;
 locus_theta=[];locus_theta(1)=theta;
 locus_u=[];locus_u(1)=0;
+
 
 %fuzzy controller
 index = 0;
