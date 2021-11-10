@@ -1,3 +1,4 @@
+%%
 clc
 clear
 
@@ -30,7 +31,7 @@ for i = 1 : n
         R1(i, j) = num/dem;
     end
 end
-
+%%
 % compute R with R1
 R_curr = fuzzy_composition(R1);
 while ~isequal(R_curr, R1)
@@ -52,8 +53,21 @@ for i = 1 : n
     end
 end
 
+
+
+R85 = zeros(n, n);
+
+for i = 1 : n
+    for j = 1 : n
+        if (R1(i, j) >= 0.85)
+            R85(i, j) = 1;
+        end
+        
+    end
+end
+
 %% could be bugness
-for alpha = 0.8 : 0.005 : 1.0
+for alpha = 0.8 : 0.01 : 1.0
     R_curr = zeros(n, n);
     for i = 1 : n
         for j = 1 : n
@@ -62,10 +76,11 @@ for alpha = 0.8 : 0.005 : 1.0
             end
         end
     end
-    % evaluate
+    % evaluation
     column_sum = cumsum(R_curr);
     if (length(unique(column_sum(end, :))) == 3)
         fprintf("Proper alpha found with %f\n", alpha);
         return;
     end
 end
+
