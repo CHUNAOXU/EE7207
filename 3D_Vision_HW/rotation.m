@@ -1,6 +1,6 @@
 %% 
 format long g;
-file = [ "C:\Users\mxy\Desktop\Assignment2\0_degree.jpg", "C:\Users\mxy\Desktop\Assignment2\7_degree.jpg"];
+file = [ "0_degree.jpg", "7_degree.jpg"];
 Im1 = imread(file(1));
 Im2 = imread(file(2));
 %impixelinfo;
